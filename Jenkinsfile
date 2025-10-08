@@ -22,8 +22,12 @@ pipeline {
                 scannerHome = tool 'SonarScanner'
             }
             steps {
+                
                 withSonarQubeEnv('SonarQube') {
-                    sh "${scannerHome}/bin/sonar-scanner"
+                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.host.url=http://localhost:9000"
+                }
+
+                    
                 }
             }
         }
