@@ -41,8 +41,8 @@ pipeline {
         stage('Build & Scan Image Docker') {
             steps {
                 script {
-                    def dockerImage = docker.build("kandby-app-pipeline:${env.BUILD_ID}")
-                    sh "trivy image --exit-code 1 --severity CRITICAL kandby-app-pipeline:${env.BUILD_ID}"
+                    def dockerImage = docker.build("mon-app-pipeline:${env.BUILD_ID}")
+                    sh "trivy image --exit-code 1 --severity CRITICAL mon-app-pipeline:${env.BUILD_ID}"
                 }
             }
         }
